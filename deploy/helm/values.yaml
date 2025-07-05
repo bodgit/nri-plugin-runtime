@@ -1,0 +1,45 @@
+global:
+  imageRegistry: null
+
+image:
+  registry: ghcr.io
+  repository: bodgit/nri-plugin-runtime
+  tag: ""
+  sha: ""
+  pullPolicy: IfNotPresent
+
+serviceAccount:
+  create: true
+  name:
+  labels: {}
+
+nri:
+  plugin:
+    index: 90
+  runtime:
+    patchConfig: false
+
+podSecurityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+  seccompProfile:
+    type: RuntimeDefault
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 32Mi
+  limits:
+    memory: 32Mi
+
+tolerations:
+  - operator: Exists
+
+podPriorityClassName: system-node-critical
+
+initContainerImage:
+  registry: ghcr.io
+  repository: containers/nri-plugins/nri-config-manager
+  tag: v0.9.4
+  sha: ""
+  pullPolicy: IfNotPresent
