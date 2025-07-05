@@ -1,6 +1,6 @@
 apiVersion: v2
 name: nri-plugin-runtime
-version: 0.0.1
+version: 1.0.0
 appVersion: v0.0.1
 description: FIXME
 home: https://github.com/bodgit/nri-plugin-runtime
