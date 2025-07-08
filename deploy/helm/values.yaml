@@ -4,7 +4,7 @@ global:
 image:
   registry: ghcr.io
   repository: bodgit/nri-plugin-runtime
-  tag: v0.0.1
+  tag: v0.0.1@sha256:091bc47679ebad6bd4c2fd5fd555d587c94de09d44fff70cf8c62b6b077bed00
   pullPolicy: IfNotPresent
 
 serviceAccount:
@@ -39,5 +39,5 @@ podPriorityClassName: system-node-critical
 initContainerImage:
   registry: ghcr.io
   repository: containers/nri-plugins/nri-config-manager
-  tag: v0.9.4
+  tag: v0.9.4@sha256:911d5f94f3a7a545e5d7c854e2f0a2b7083b268dd3795022c7bf4c9ca0cc30ae
   pullPolicy: IfNotPresent
