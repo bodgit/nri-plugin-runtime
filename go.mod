@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/containerd/nri v0.9.0
 	github.com/sirupsen/logrus v1.9.3
-	sigs.k8s.io/yaml v1.3.0
+	sigs.k8s.io/yaml v1.5.0
 )
 
 require (
@@ -16,6 +16,7 @@ require (
 	github.com/knqyf263/go-plugin v0.8.1-0.20240827022226-114c6257e441 // indirect
 	github.com/opencontainers/runtime-spec v1.0.3-0.20220825212826-86290f6a00fb // indirect
 	github.com/tetratelabs/wazero v1.8.2-0.20241030035603-dc08732e57d5 // indirect
+	go.yaml.in/yaml/v2 v2.4.2 // indirect
 	golang.org/x/net v0.25.0 // indirect
 	golang.org/x/sys v0.21.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
