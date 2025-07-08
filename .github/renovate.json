@@ -6,9 +6,19 @@
   ],
   "packageRules": [
     {
-      "description": "Override semantic type for appVersion and values in Helm chart",
+      "description": "Override semantic type for appVersion in Helm chart",
       "matchManagers": [
-        "custom.jsonata",
+        "custom.jsonata"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "pinDigests": false,
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "Override semantic type for Docker tags in Helm chart values",
+      "matchManagers": [
         "helm-values"
       ],
       "matchDatasources": [
