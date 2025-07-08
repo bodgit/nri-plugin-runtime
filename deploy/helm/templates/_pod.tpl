@@ -18,7 +18,7 @@ initContainers:
       - -nri-plugin-request-timeout
       - {{ .Values.nri.runtime.config.pluginRequestTimeout }}
     {{- end }}
-    {{- $registry := .Values.global.imageRegistry | default .Values.initContainerImage.registry -}}
+    {{- $registry := .Values.global.imageRegistry | default .Values.initContainerImage.registry }}
     image: "{{ $registry }}/{{ .Values.initContainerImage.repository }}:{{ .Values.initContainerImage.tag }}"
     imagePullPolicy: {{ .Values.initContainerImage.pullPolicy }}
     securityContext:
@@ -44,7 +44,7 @@ containers:
     args:
       - -idx
       - {{ .Values.nri.plugin.index | int | printf "%02d" | quote }}
-    {{- $registry := .Values.global.imageRegistry | default .Values.image.registry -}}
+    {{- $registry := .Values.global.imageRegistry | default .Values.image.registry }}
     image: "{{ $registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
     imagePullPolicy: {{ .Values.image.pullPolicy }}
     securityContext:
