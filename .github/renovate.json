@@ -4,7 +4,35 @@
     "config:recommended",
     "docker:pinDigests"
   ],
+  "packageRules": [
+    {
+      "description": "Override semantic type for appVersion and values in Helm chart",
+      "matchManagers": [
+        "custom.jsonata",
+        "helm-values"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "semanticCommitType": "fix"
+    }
+  ],
   "postUpdateOptions": [
     "gomodTidy",
+  ],
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "description": "Update appVersion in Helm chart",
+      "fileFormat": "yaml",
+      "fileMatch": [
+        "^deploy/helm/Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "{ \"currentValue\": appVersion }"
+      ],
+      "depNameTemplate": "ghcr.io/bodgit/nri-plugin-runtime",
+      "datasourceTemplate": "docker"
+    }
   ]
 }
