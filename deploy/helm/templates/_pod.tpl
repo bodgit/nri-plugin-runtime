@@ -19,11 +19,7 @@ initContainers:
       - {{ .Values.nri.runtime.config.pluginRequestTimeout }}
     {{- end }}
     {{- $registry := .Values.global.imageRegistry | default .Values.initContainerImage.registry -}}
-    {{- if .Values.initContainerImage.sha }}
-    image: "{{ $registry }}/{{ .Values.initContainerImage.repository }}:{{ .Values.initContainerImage.tag }}@sha256:{{ .Values.initContainerImage.sha }}"
-    {{- else }}
     image: "{{ $registry }}/{{ .Values.initContainerImage.repository }}:{{ .Values.initContainerImage.tag }}"
-    {{- end }}
     imagePullPolicy: {{ .Values.initContainerImage.pullPolicy }}
     securityContext:
       allowPrivilegeEscalation: false
@@ -49,11 +45,7 @@ containers:
       - -idx
       - {{ .Values.nri.plugin.index | int | printf "%02d" | quote }}
     {{- $registry := .Values.global.imageRegistry | default .Values.image.registry -}}
-    {{- if .Values.image.sha }}
-    image: "{{ $registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}@sha256:{{ .Values.image.sha }}"
-    {{- else }}
     image: "{{ $registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-    {{- end }}
     imagePullPolicy: {{ .Values.image.pullPolicy }}
     securityContext:
       allowPrivilegeEscalation: false

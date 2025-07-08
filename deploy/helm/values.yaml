@@ -5,7 +5,6 @@ image:
   registry: ghcr.io
   repository: bodgit/nri-plugin-runtime
   tag: v0.0.1
-  sha: ""
   pullPolicy: IfNotPresent
 
 serviceAccount:
@@ -41,5 +40,4 @@ initContainerImage:
   registry: ghcr.io
   repository: containers/nri-plugins/nri-config-manager
   tag: v0.9.4
-  sha: ""
   pullPolicy: IfNotPresent
