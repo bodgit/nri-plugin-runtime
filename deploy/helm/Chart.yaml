@@ -1,8 +1,9 @@
 apiVersion: v2
 name: nri-plugin-runtime
-version: 0.0.1
+version: 0.0.2
 appVersion: v0.0.2
-description: The runtime NRI plugin adds runtime-related environment variables to a container.
+description: The runtime NRI plugin adds runtime-related environment variables
+  to a container.
 home: https://github.com/bodgit/nri-plugin-runtime
 sources:
   - https://github.com/bodgit/nri-plugin-runtime
