@@ -28,15 +28,15 @@
     }
   ],
   "postUpdateOptions": [
-    "gomodTidy",
+    "gomodTidy"
   ],
   "customManagers": [
     {
       "customType": "jsonata",
       "description": "Update appVersion in Helm chart",
       "fileFormat": "yaml",
-      "fileMatch": [
-        "^deploy/helm/Chart\\.yaml$"
+      "managerFilePatterns": [
+        "/^deploy/helm/Chart\\.yaml$/"
       ],
       "matchStrings": [
         "{ \"currentValue\": appVersion }"
