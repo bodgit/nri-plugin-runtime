@@ -4,7 +4,7 @@ global:
 image:
   registry: ghcr.io
   repository: bodgit/nri-plugin-runtime
-  tag: ""
+  tag: v0.0.1
   sha: ""
   pullPolicy: IfNotPresent
 
