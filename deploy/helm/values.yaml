@@ -39,5 +39,5 @@ podPriorityClassName: system-node-critical
 initContainerImage:
   registry: ghcr.io
   repository: containers/nri-plugins/nri-config-manager
-  tag: v0.10.0@sha256:8bc466ae1225a70ba20d46425f9d53ba59d99b9d1d0795f1dd8dcff60ea6c785
+  tag: v0.12.2@sha256:c75524531ed8f100f19abf410eb47bc0674eb5e33d25c00b72ca1665a1d30b5c
   pullPolicy: IfNotPresent
