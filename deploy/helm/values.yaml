@@ -4,7 +4,7 @@ global:
 image:
   registry: ghcr.io
   repository: bodgit/nri-plugin-runtime
-  tag: v0.0.2@sha256:28cd859856129fac9cbd90dfaf0641061987db91cdf54f68d04ed33b5a035553
+  tag: v0.0.3@sha256:130c0b1b6fa3952501e0d2ff1aefb55eadb86d8adf94aae3a5269b265e10122e
   pullPolicy: IfNotPresent
 
 serviceAccount:
