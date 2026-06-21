@@ -1,11 +1,15 @@
 package runtime
 
 const (
-	// ContainerIDName is the default environment variable name used to
+	// ContainerIDEnv is the default environment variable name used to
 	// export the container ID.
-	ContainerIDName = "CONTAINER_ID"
+	ContainerIDEnv = "CONTAINER_ID"
 
-	// ContainerRuntimeName is the default environment variable name used
-	// to export the container runtime.
-	ContainerRuntimeName = "CONTAINER_RUNTIME"
+	// ContainerRuntimeNameEnv is the default environment variable name
+	// used to export the container runtime name.
+	ContainerRuntimeNameEnv = "CONTAINER_RUNTIME_NAME"
+
+	// ContainerRuntimeVersionEnv is the default environment variable name
+	// used to export the container runtime version.
+	ContainerRuntimeVersionEnv = "CONTAINER_RUNTIME_VERSION"
 )

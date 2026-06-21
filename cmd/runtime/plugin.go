@@ -14,8 +14,9 @@ import (
 )
 
 type config struct {
-	ContainerIDName      string `json:"containerIDName"` //nolint:tagliatelle
-	ContainerRuntimeName string `json:"containerRuntimeName"`
+	ContainerIDEnv             string `json:"containerIDEnv"` //nolint:tagliatelle
+	ContainerRuntimeNameEnv    string `json:"containerRuntimeNameEnv"`
+	ContainerRuntimeVersionEnv string `json:"containerRuntimeVersionEnv"`
 }
 
 type plugin struct {
@@ -23,12 +24,13 @@ type plugin struct {
 	cfg     config
 	logger  *logrus.Logger
 	runtime string
+	version string
 }
 
 func (p *plugin) Configure(_ context.Context, config, runtime, version string) (api.EventMask, error) {
 	p.logger.Infof("Connected to %s/%s...", runtime, version)
 
-	p.runtime = runtime
+	p.runtime, p.version = runtime, version
 
 	if config == "" {
 		return 0, nil
@@ -48,8 +50,9 @@ func (p *plugin) CreateContainer(_ context.Context, _ *api.PodSandbox, ctr *api.
 	p.logger.Infof("Create container %s, id %s", ctr.GetName(), ctr.GetId())
 
 	adjust := new(api.ContainerAdjustment)
-	adjust.AddEnv(p.cfg.ContainerIDName, ctr.GetId())
-	adjust.AddEnv(p.cfg.ContainerRuntimeName, p.runtime)
+	adjust.AddEnv(p.cfg.ContainerIDEnv, ctr.GetId())
+	adjust.AddEnv(p.cfg.ContainerRuntimeNameEnv, p.runtime)
+	adjust.AddEnv(p.cfg.ContainerRuntimeVersionEnv, p.version)
 
 	return adjust, nil, nil
 }
@@ -86,8 +89,9 @@ func main() {
 
 	flag.StringVar(&pluginName, "name", "", "plugin name to register to NRI")
 	flag.StringVar(&pluginIdx, "idx", "", "plugin index to register to NRI")
-	flag.StringVar(&p.cfg.ContainerIDName, "container-id-name", runtime.ContainerIDName, "environment variable to export the container ID")                     //nolint:lll
-	flag.StringVar(&p.cfg.ContainerRuntimeName, "container-runtime-name", runtime.ContainerRuntimeName, "environment variable to export the container runtime") //nolint:lll
+	flag.StringVar(&p.cfg.ContainerIDEnv, "container-id-env", runtime.ContainerIDEnv, "environment variable to export the container ID")                                                   //nolint:lll
+	flag.StringVar(&p.cfg.ContainerRuntimeNameEnv, "container-runtime-name-env", runtime.ContainerRuntimeNameEnv, "environment variable to export the container runtime name")             //nolint:lll
+	flag.StringVar(&p.cfg.ContainerRuntimeVersionEnv, "container-runtime-version-env", runtime.ContainerRuntimeVersionEnv, "environment variable to export the container runtime version") //nolint:lll
 	flag.Parse()
 
 	opts := []stub.Option{
