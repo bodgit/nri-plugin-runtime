@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.3](https://github.com/bodgit/nri-plugin-runtime/compare/nri-plugin-runtime-0.0.2...nri-plugin-runtime-0.0.3) (2026-06-21)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/bodgit/nri-plugin-runtime docker tag to v0.0.3 ([#39](https://github.com/bodgit/nri-plugin-runtime/issues/39)) ([2ce8947](https://github.com/bodgit/nri-plugin-runtime/commit/2ce8947c2d9c1eec82e0aa57610decf8340aa713))
+* **deps:** update ghcr.io/containers/nri-plugins/nri-config-manager docker tag to v0.12.2 ([#22](https://github.com/bodgit/nri-plugin-runtime/issues/22)) ([ba1dda1](https://github.com/bodgit/nri-plugin-runtime/commit/ba1dda1a4cabcac698eb2a8033b38f82d0f5d454))
+
 ## [0.0.2](https://github.com/bodgit/nri-plugin-runtime/compare/nri-plugin-runtime-0.0.1...nri-plugin-runtime-0.0.2) (2025-07-08)
 
 
