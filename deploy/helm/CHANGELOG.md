@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/bodgit/nri-plugin-runtime/compare/nri-plugin-runtime-0.0.3...nri-plugin-runtime-0.0.4) (2026-06-25)
+
+
+### Bug Fixes
+
+* Correct DaemonSet selector labels ([#43](https://github.com/bodgit/nri-plugin-runtime/issues/43)) ([bfbe0e1](https://github.com/bodgit/nri-plugin-runtime/commit/bfbe0e10d05aa1ecb6663cb02f6fa84d673f5cd4))
+
 ## [0.0.3](https://github.com/bodgit/nri-plugin-runtime/compare/nri-plugin-runtime-0.0.2...nri-plugin-runtime-0.0.3) (2026-06-21)
 
 
