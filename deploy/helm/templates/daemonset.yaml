@@ -15,7 +15,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      {{- include "nri-plugin.labels" . | nindent 6 }}
+      {{- include "nri-plugin.selectorLabels" . | nindent 6 }}
       {{- with .Values.podLabels }}
       {{- toYaml . | nindent 6 }}
       {{- end }}
